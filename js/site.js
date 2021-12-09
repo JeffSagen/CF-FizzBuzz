@@ -2,8 +2,8 @@
 
 function getValues(){
         //get values from the page
-let fizzValue = document.getElementById("fizz").value;
-let buzzValue = document.getElementById("buzz").value;
+let fizzValue = document.getElementById("fizzValue").value;
+let buzzValue = document.getElementById("buzzValue").value;
 
 
         //We need to validate our input
@@ -20,7 +20,8 @@ if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
     displayData(fbArray);
 
     }else{
-    alert("You Must enter integers")
+    
+        alert("You Must enter integers")
     }
 
         //function newFunction() {
@@ -51,7 +52,7 @@ function fizzBuzz(fizzValue, buzzValue){
         
     }  
 
-returnArray;
+    return returnArray;
         
 }
 
@@ -74,11 +75,11 @@ function displayData(fbArray){
 
         //grab use the td's put into an array
         let rowCols = tableRow.querySelectorAll("td") 
-        rowCols[0].textContent = fbData[i];
-        rowCols[1].textContent = fbData[i+1];
-        rowCols[2].textContent = fbData[i+2];
-        rowCols[3].textContent = fbData[i+3];
-        rowCols[4].textContent = fbData[i+4];
+        rowCols[0].textContent = fbArray[i];
+        rowCols[1].textContent = fbArray[i+1];
+        rowCols[2].textContent = fbArray[i+2];
+        rowCols[3].textContent = fbArray[i+3];
+        rowCols[4].textContent = fbArray[i+4];
 
         tableBody.appendChild(tableRow);
         
