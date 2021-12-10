@@ -75,3 +75,16 @@ word-wrap: break-word;
     border-left: 6px solid --dark-color;
     height: 500px;
   }
+
+  .Fizz{
+color: pink;
+  }
+
+  .Buzz{
+color: purple;
+  }
+
+  .FizzBuzz{
+      color: #b56ae0;
+      font-weight: bold;
+  }

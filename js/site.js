@@ -15,7 +15,7 @@ buzzValue = parseInt(buzzValue);
         // check that the numbers are integers
 if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
         // we call fizzBuzz
-    let fbArray = fizzBuzz(fizzValue,buzzValue);    
+    let fbArray = fizzBuzzC(fizzValue,buzzValue);    
         //let numbers = generateNumbers(fizzValue, buzzValue);
     displayData(fbArray);
 
@@ -36,18 +36,18 @@ if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
 function fizzBuzz(fizzValue, buzzValue){
     let returnArray = [];
    //loop 1 through 100
-    for (let i = 1; i <= 100; index++){
+    for (let index = 1; index <= 100; index++){
         //check to see if divisible by Both (3 and 5)
-        if (i % buzzValue == 0 && i % buzzValue == 0) {
+        if (index % fizzValue == 0 && index % buzzValue == 0) {
             returnArray.push('FizzBuzz');
         //check to see if divisible by fizzValue (3)
-        }else if (i % fizzValue == 0){
+        }else if (index % fizzValue == 0){
                 returnArray.push('Fizz');
         // check to see if divisble by buzz value (5)
-        }else if (i % buzzValue == 0){
+        }else if (index % buzzValue == 0){
             returnArray.push('Buzz');
         }else {
-            returnArray.push(i);
+            returnArray.push(index);
         }  
         
     }  
@@ -56,7 +56,54 @@ function fizzBuzz(fizzValue, buzzValue){
         
 }
 
-    //display of view functions
+function fizzBuzzB(fizzValue, buzzValue){
+
+    let returnArray = [];
+    let Fizz = false;
+    let Buzz = false;
+
+    for (let index = 1; index <= 100; index++) {
+        Fizz = index % fizzValue == 0;
+        Buzz = index % buzzValue == 0;
+
+        switch(true){
+            case Fizz && Buzz:{
+                returnArray.push('FizzBuzz');
+                break;
+            }
+            case Fizz: {
+                returnArray.push('Fizz');
+                break;
+            }
+            case Buzz: {
+                returnArray.push('Buzz');
+                break;
+            }
+            default:{
+                returnArray.push(index);
+                break;
+            }
+        }
+    }
+    return returnArray;
+}
+    
+function fizzBuzzC(fizzValue, buzzValue){
+    let returnArray = [];
+
+    for (let index = 1; index <= 100; index++){
+        
+        let value = (( index % fizzValue == 0 ? 'Fizz' : '')+ (index % buzzValue ==0 ? 'Buzz' : '') || index);
+        returnArray.push(value);
+    }
+
+    return returnArray;
+}
+
+
+
+
+//display of view functions
 
 function displayData(fbArray){
 //get the table body element from the page
@@ -75,12 +122,23 @@ function displayData(fbArray){
 
         //grab use the td's put into an array
         let rowCols = tableRow.querySelectorAll("td") 
-        rowCols[0].textContent = fbArray[i];
-        rowCols[1].textContent = fbArray[i+1];
-        rowCols[2].textContent = fbArray[i+2];
-        rowCols[3].textContent = fbArray[i+3];
-        rowCols[4].textContent = fbArray[i+4];
+        
+        rowCols[0].classList.add(fbArray[index]);
+        rowCols[0].textContent = fbArray[index];
 
+        rowCols[1].classList.add(fbArray[index+1]);
+        rowCols[1].textContent = fbArray[index+1];
+
+        rowCols[2].classList.add(fbArray[index+2]);
+        rowCols[2].textContent = fbArray[index+2];
+
+        rowCols[3].classList.add(fbArray[index+3]);
+        rowCols[3].textContent = fbArray[index+3];
+
+        rowCols[4].classList.add(fbArray[index+4]);
+        rowCols[4].textContent = fbArray[index+4];
+
+        
         tableBody.appendChild(tableRow);
         
         }
